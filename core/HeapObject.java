@@ -16,6 +16,9 @@ public class HeapObject {
         this.marked = false;
         this.references = new ArrayList<>();
     }
+    public void addReference(int address) {
+    references.add(address);
+    }
     @Override
     public String toString() {
     return name + " { id=" + id
