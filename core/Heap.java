@@ -1,3 +1,5 @@
+package core;
+
 public class Heap {
 
     private HeapObject[] slots;
@@ -21,7 +23,7 @@ public class Heap {
         slots[index] = HO;
     }
 
-    public boolean isFree(int index) {
+    private boolean isFree(int index) {
         return slots[index] == null;
     }
 
@@ -37,24 +39,14 @@ public class Heap {
         return -1;
     }
     public void addReference(int from, int to) {
-    if (from < 0 || from >= capacity || to < 0 || to >= capacity) {
-        return;
-    }
-
-    if (slots[from] == null || slots[to] == null) {
-        return;
-    }
-
-    slots[from].addReference(to);
-}
-
-    public int addRefrence(int from, int to){
-        if (from >= 0 && front < capacity){
-            if (slots[from] != null){
-
-
-            }
+        if (from < 0 || from >= capacity || to < 0 || to >= capacity) {
+            return;
         }
-    }
 
+        if (slots[from] == null || slots[to] == null) {
+            return;
+        }
+
+        slots[from].addReference(to);
+    }
 }

@@ -19,6 +19,11 @@ public class HeapObject {
     public void addReference(int address) {
     references.add(address);
     }
+
+    public void removeRefrence(int address){
+        references.remove(address);
+    }
+
     @Override
     public String toString() {
     return name + " { id=" + id
