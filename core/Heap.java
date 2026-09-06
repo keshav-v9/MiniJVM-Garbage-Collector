@@ -1,10 +1,11 @@
-package core;
+import java.util.set;
 
 public class Heap {
 
     private HeapObject[] slots;
     private int capacity;
     private int nextId = 1;
+    private Set<Integer> roots;
 
     public Heap(int capacity) {
         this.capacity = capacity;
@@ -23,7 +24,7 @@ public class Heap {
         slots[index] = HO;
     }
 
-    private boolean isFree(int index) {
+    public boolean isFree(int index) {
         return slots[index] == null;
     }
 
@@ -40,13 +41,57 @@ public class Heap {
     }
     public void addReference(int from, int to) {
         if (from < 0 || from >= capacity || to < 0 || to >= capacity) {
-            return;
+        return;
         }
 
         if (slots[from] == null || slots[to] == null) {
-            return;
+        return;
         }
 
         slots[from].addReference(to);
+
     }
+
+    public void removeRefrence(int from, int to){
+            if (from < 0 || from >= capacity || to < 0 || to >= capacity) {
+        return;
+        }
+
+        if (slots[from] == null || slots[to] == null) {
+        return;
+        }
+
+        slots[from].removeRefrence(to);
+
+    }
+
+    public void addRoot(int address){
+
+        roots.add(address);
+
+    }
+
+    public void removeRoot(int address){
+        roots.remove(address);
+
+    }
+
+    public boolean isRoot(int address){
+        return roots.contains(address);
+    }
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
 }
