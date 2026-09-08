@@ -1,7 +1,7 @@
 package core;
 
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 public class HeapObject {
 
@@ -22,6 +22,13 @@ public class HeapObject {
 
     public void removeRefrence(int address){
         references.remove(address);
+    }
+
+    public boolean isMarked(){
+        return marked;
+    }
+    public void setMarked(boolean marked) {
+    this.marked = marked;
     }
 
     @Override
